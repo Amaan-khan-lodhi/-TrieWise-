@@ -1,0 +1,52 @@
+TrieWise 1.2 - Start here
+
+RUN ON WINDOWS
+1. Extract the ZIP into a new folder. Open the TrieWise folder inside it.
+2. Double-click run.bat.
+   First launch: it compiles the program and runs the C++ engine tests.
+   Later launches: it opens the program directly.
+3. Choose 1, enter comp, and press Enter. You will see suggested words.
+4. Press Enter to return, or enter a suggestion number to increase its weight.
+5. Choose 0 to exit. If you made changes, it will ask whether to save them.
+
+ONE-TIME COMPILER SETUP, IF NEEDED
+A C++17 g++ compiler is required to build the application.
+For a 64-bit Intel/AMD Windows PC:
+1. Install MSYS2 from https://www.msys2.org/ into the default C:\msys64 folder.
+2. Open "MSYS2 UCRT64" from the Start menu and run:
+     pacman -S mingw-w64-ucrt-x86_64-gcc
+3. Accept the installation prompt. When it finishes, double-click run.bat again.
+The launcher detects this default compiler location. No Linux/WSL setup is needed.
+If using another compiler location, its bin folder must be on Windows PATH.
+
+ABOUT THE EXE
+The first successful build creates build\triewise.exe.
+No precompiled Windows .exe is included in this source archive.
+Keep the compiler runtime installed and use run.bat to locate its DLLs and data.
+Windows scripts are supplied; native Windows execution was not tested here.
+To rebuild after changing source, run build.bat from Command Prompt.
+
+MENU
+1 Search | 2 Correct spelling | 3 Add word | 4 Save | 5 More options | 0 Exit
+More options includes exact lookup, imports, history, statistics and DSA commands.
+
+SAVING
+Press Enter at the filename prompt to save to data/my_dictionary.txt.
+Normal launches automatically reopen that saved file.
+To use the original starter instead, open Command Prompt in this folder and run:
+  run.bat data/dictionary.txt
+To reopen a file saved under another name:
+  run.bat "data/my_other_dictionary.txt"
+Saving replaces the chosen file if it already exists.
+
+DSA COMMAND MODE
+  run.bat data/dictionary.txt --commands
+Then try: prefix comp, fuzzy computr 1, stats, benchmark 20, quit.
+
+WSL / LINUX ALTERNATIVE
+From a terminal in this folder with g++ installed:
+  bash build.sh
+  bash run.sh
+
+Read docs/TrieWise_Project_Overview.pdf for the six-page explanation.
+Read docs/REVIEW.md for fair evaluation and remaining limitations.

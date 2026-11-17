@@ -1,0 +1,24 @@
+TrieWise 1.2 verification, 18 October 2026
+Platform: Linux x86-64, GCC 13.3.0, C++17
+
+bash build.sh
+PASS: 27771 checks (examples, exhaustive, randomized, persistence, benchmark).
+PASS: 44 CLI integration checks.
+Build and tests passed. Run: ./build/triewise
+
+Strict application compile: -O2 -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror
+PASS: exited 0 with no warnings.
+
+Application compile: -O1 -g -Wall -Wextra -Wpedantic
+-fsanitize=address,undefined -fno-omit-frame-pointer
+ASAN_OPTIONS=detect_leaks=0 python3 tests/test_cli.py build/triewise_cli_sanitized data/dictionary.txt
+PASS: 44 CLI integration checks.
+
+Native Windows execution, CMake and leak detection were not tested.
+The engine implementation and performance reports are unchanged from release 1.1.
+This record summarizes the actual tool results; it is not a guarantee of zero defects.
+
+Clean ZIP extraction into a path containing spaces:
+PASS: 27,771 engine assertions and 44 CLI checks with its included build.sh.
+PASS: binary started from build/ locates the starter dictionary.
+PASS: archive CRC and per-file SHA-256 manifest.

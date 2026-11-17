@@ -1,0 +1,26 @@
+
+TrieWise | Autocomplete & Fuzzy Search | C++17
+Loaded 536 records: 536 new, 0 updated, 0 rejected.
+Construction: 0.58 ms
+BENCHMARK: 536 words; 30 repetitions/query; K=5; fuzzy edit limit=2
+Timing excludes file loading, history and console output. Units: microseconds.
+
+PREFIX
+query        trie median   scan median   trie p95   scan p95   scan/trie
+a                   1.62          4.07       1.82       4.26        2.51
+co                  1.18          2.83       1.26       2.92        2.40
+comp                0.85          2.44       0.90       2.46        2.87
+net                 0.13          1.82       0.15       1.85       14.02
+data                0.30          2.03       0.35       2.05        6.75
+zzzz                0.03          1.76       0.03       1.77       58.77
+
+FUZZY
+query        trie median   scan median   trie p95   scan p95   scan/trie
+computr            18.35         27.98      22.30      41.21        1.53
+netwrok            18.92         28.44      21.15      29.26        1.50
+algoritm           19.18         25.44      21.02      26.45        1.33
+securty            20.38         28.98      21.96      29.84        1.42
+zzzz                8.60         10.53       9.74      11.34        1.22
+
+Parity: PASS (all queries). Checksum: 12568140
+A ratio below 1 means the linear scan was faster for that query.

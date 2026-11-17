@@ -1,0 +1,18 @@
+Same-process comparison, GCC -O2, 31 alternating repetitions per query, K=5, D=2
+Before construction ms: 99.1456
+After construction ms: 146.478
+Before capacity estimate bytes: 120089088
+After capacity estimate bytes: 128477696
+mode,query,before_us,after_us,before_nodes,after_nodes
+prefix,a,645.071,6.93,23021,50
+prefix,co,19.809,2.624,1012,41
+prefix,comp,0.421,0.39,15,15
+prefix,net,0.831,0.801,34,26
+prefix,data,0.22,0.19,9,9
+prefix,zzzz,0.03,0.03,4,4
+fuzzy,computr,4366.23,2822,40001,40001
+fuzzy,netwrok,5773.43,4162.15,39772,39772
+fuzzy,algoritm,4406.5,3466.68,40020,40020
+fuzzy,securty,7438.76,4649.94,39619,39619
+fuzzy,zzzz,2098.34,1567.2,28939,28939
+Parity PASS; checksum 105226834

@@ -1,0 +1,90 @@
+Release 1.2 advanced-mode demonstration. Timings are machine-dependent.
+Invocation: build/triewise data/dictionary.txt --commands < docs/demo_commands.txt
+
+TrieWise | Autocomplete and spelling suggestions
+Using 536 words from: data/dictionary.txt
+Loaded 536 records: 536 new, 0 updated, 0 rejected.
+Construction: 6.22 ms
+
+Commands (press Enter after each command):
+  prefix TEXT [K]       Prefix completions; K defaults to 5
+  prefix * [K]          Top words across the dictionary
+  fuzzy WORD [D] [K]    Whole-word typo correction; D=2, K=5
+  search WORD [K]       Prefix first; fuzzy fallback if no prefix matches
+  exact WORD            Check whether a full word exists
+  add WORD [FREQUENCY]  Insert a word, or replace its frequency
+  select WORD           Increase an existing word's frequency by one
+  load "PATH"           Merge a dictionary; duplicate words replace frequency
+  save "PATH"           Save all words and frequencies (overwrites PATH)
+  history               Show successful search commands and usage counts
+  stats                 Dictionary size and approximate storage
+  benchmark [RUNS]      Compare Trie with linear scan; RUNS defaults to 20
+  help                  Show this menu
+  quit                  Exit
+
+English letters only; 64 letters/word; edit limit 0-3; K=0-100.
+
+triewise> Words: 536 | Nodes: 2203 | Estimated dictionary storage: 524672 bytes
+Estimate excludes allocator overhead and query history; not process RAM.
+
+triewise>   1. computer  frequency=9800
+  2. compile  frequency=8600
+  3. compiler  frequency=8100
+  4. computing  frequency=7400
+  5. comparison  frequency=4685
+Candidates: 12 | Node visits: 22 | 5.24 us
+
+triewise> Word not found.
+
+triewise>   1. computer  frequency=9800  edits=1
+  2. compute  frequency=881  edits=1
+Candidates: 2 | Node visits: 301 | Cut-off branches: 219 | DP cells: 2107 | 16.96 us
+
+triewise> Fuzzy fallback
+  1. network  frequency=9500  edits=2
+Candidates: 1 | Node visits: 759 | Cut-off branches: 401 | DP cells: 5313 | 38.99 us
+
+triewise> Word added.
+
+triewise>   1. comp  frequency=9900
+  2. computer  frequency=9800
+  3. compile  frequency=8600
+Candidates: 13 | Node visits: 12 | 2.04 us
+
+triewise> Frequency updated (saturates at maximum).
+
+triewise>   1. comp  frequency=9900
+  2. computer  frequency=9801
+  3. compile  frequency=8600
+Candidates: 13 | Node visits: 12 | 1.63 us
+
+triewise> 2 x prefix comp d=2 k=3
+1 x fuzzy computr d=1 k=5
+1 x prefix comp d=2 k=5
+1 x search netwrok d=2 k=5
+
+triewise> BENCHMARK: 537 words; 5 repetitions/query; K=5; fuzzy edit limit=2
+Timing excludes file loading, history and console output. Units: microseconds.
+
+PREFIX
+query        trie median   scan median   trie p95   scan p95   scan/trie
+a                   1.90          5.80       2.08       6.36        3.04
+co                  1.08          3.77       1.30       3.78        3.49
+comp                0.81          3.17       0.87       3.17        3.91
+net                 0.20          2.15       0.23       2.16       10.77
+data                0.42          2.43       0.50       2.44        5.71
+zzzz                0.05          2.05       0.05       2.06       44.63
+
+FUZZY
+query        trie median   scan median   trie p95   scan p95   scan/trie
+computr            35.71         41.46      43.83      54.80        1.16
+netwrok            26.12         24.12      28.70      24.17        0.92
+algoritm           27.49         21.93      30.25      22.00        0.80
+securty            31.84         27.69      34.66      28.94        0.87
+zzzz               10.50          9.47      12.24       9.57        0.90
+
+Parity: PASS (all queries). Checksum: 2198920
+A ratio below 1 means the linear scan was faster for that query.
+
+triewise> Note: dictionary changes were not saved.
+Goodbye.

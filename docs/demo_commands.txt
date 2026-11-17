@@ -1,0 +1,12 @@
+stats
+prefix comp 5
+exact comp
+fuzzy computr 1
+search netwrok
+add comp 9900
+prefix comp 3
+select computer
+prefix comp 3
+history
+benchmark 5
+quit
