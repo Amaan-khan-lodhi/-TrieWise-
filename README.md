@@ -279,10 +279,3 @@ Storage statistics are a capacity-based approximation including a conservative
 string-buffer allowance, potentially double-counting inline string storage.
 They exclude allocator overhead and query history and are not measured process RAM.
 
-## Learning and submission
-
-Read `docs/ALGORITHMS.md`, rehearse `docs/DEMO_AND_VIVA.md`, and rerun `bash build.sh`
-on your own laptop. The project is suitable for an academic DSA demo, with clear
-limitations and measured evidence. Adapt attribution and submission to your course's
-AI-assistance policy. Do not claim generated benchmark numbers as your own hardware's
-measurements without rerunning them.
