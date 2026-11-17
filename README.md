@@ -1,5 +1,5 @@
-TrieWise
-Autocomplete and Fuzzy Search Engine | C++17 | DSA Mini-Project
+##TrieWise
+##Autocomplete and Fuzzy Search Engine | C++17 | DSA Mini-Project
 
 TrieWise is a small offline search application built in C++. It helps users find words, complete partially typed words, and get spelling suggestions when a word is mistyped.
 
